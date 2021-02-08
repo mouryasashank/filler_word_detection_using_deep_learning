@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+  
+<html> 
+<head> 
+    <title>My prosodic Features</title> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head> 
+<!-- CSS only -->
+<body> 
+  
+
+
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, There</h1>
+        <p class="lead">You in a demo to check vocal features of your speech.</p>
+        <hr class="my-4">
+        <p>here you have audio_name, the 10 seconds audio chunked file, presence of filler and repetiton detected through neural net, detection of long pause using PRAAT Script.</p>
+      </div>
+
+
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">audio_file_name</th>
+            <th scope="col">audio_file</th>
+            <th scope="col">filler</th>
+            <th scope="col">repetition</th>
+            <th scope="col">long Pause</th>
+          </tr>
+        </thead>
+
+        {%for i in range(0, len)%} 
+
+        <tbody>
+            <tr>
+                <td> src="{{url_for('static', filename=data[i][0])}}"  </td>
+                <td><audio controls>
+            <source src="{{url_for('static', filename=data[i][0])}}" 
+                 type="audio/wav">
+          </audio> </td>
+                
+                <td>{{data[i][1]}}</td>
+                <td>{{data[i][2]}}</td>
+                <td>{{data[i][3]}}</td>
+              </tr>
+        </tbody>
+
+        {%endfor%} 
+
+    </table>
+
+  
+</body> 
+</html> 

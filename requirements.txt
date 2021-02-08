@@ -1,0 +1,4 @@
+pydub
+librosa
+flask-ngrok
+praat-parselmouth
